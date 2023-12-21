@@ -15,7 +15,7 @@ const SearchParams = () => {
   };
 
   useEffect(() => {
-    if (search == '') {
+    if (search === '') {
       setSearchParams();
       return;
     }

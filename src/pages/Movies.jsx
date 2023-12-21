@@ -5,11 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Movies = () => {
-  // const { id } = useParams();
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const movies = searchParams.get('movies');
-  // console.log(movies);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const searshParam = searchParams.get('search');
 
@@ -39,7 +35,7 @@ const Movies = () => {
       if (film === '') return;
       searchFun();
     }
-  }, [searshParam]);
+  }, [searshParam, film, searchParams]);
 
   return (
     <div>

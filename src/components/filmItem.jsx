@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const FilmItem = () => {
   const [film, setFilm] = useState([]);
-  const [genres, setGenres] = useState([]);
+  // const [genres, setGenres] = useState([]);
   const { kinoID } = useParams();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const FilmItem = () => {
         .catch(err => console.error(err));
     }
     detailsFilm();
-  }, []);
+  }, [kinoID]);
 
   return (
     <div>

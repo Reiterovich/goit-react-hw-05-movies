@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const Home = () => {
   const [film, setFilm] = useState([]);
 
-  const { kinoID } = useParams();
+  // const { kinoID } = useParams();
 
   useEffect(() => {
     const options = {
