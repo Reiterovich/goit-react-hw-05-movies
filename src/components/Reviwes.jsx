@@ -22,7 +22,7 @@ const Reviwes = () => {
       .then(response => response.json())
       .then(response => setReviwes(response.results))
       .catch(err => console.error(err));
-  }, []);
+  }, [kinoID]);
 
   return (
     <div>

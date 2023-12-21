@@ -19,7 +19,7 @@ const SearchParams = () => {
       setSearchParams();
       return;
     }
-  }, [search]);
+  }, [search, setSearchParams]);
 
   return (
     <div>

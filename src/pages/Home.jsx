@@ -1,6 +1,6 @@
 // import axios from 'axios';
 // import { API_KEY } from 'components/ApiKey';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 

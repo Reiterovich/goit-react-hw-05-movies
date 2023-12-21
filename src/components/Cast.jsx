@@ -22,7 +22,7 @@ const Cast = () => {
       .then(response => response.json())
       .then(response => setCast(response.cast))
       .catch(err => console.error(err));
-  }, []);
+  }, [kinoID]);
 
   return (
     <div>
