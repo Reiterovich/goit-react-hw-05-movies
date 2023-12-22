@@ -12,7 +12,6 @@ const FilmItem = () => {
   console.log(linkBackLocation);
 
   useEffect(() => {
-    console.log(location);
     async function detailsFilm() {
       const options = {
         method: 'GET',
