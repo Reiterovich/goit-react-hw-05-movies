@@ -1,7 +1,7 @@
 // import { useParams } from 'react-router-dom';
 import SearchParams from 'components/SaerchParams';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Movies = () => {
@@ -10,6 +10,8 @@ const Movies = () => {
   const searshParam = searchParams.get('search');
 
   const [film, setFilm] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     const searshParam = searchParams.get('search');
@@ -44,7 +46,9 @@ const Movies = () => {
         {film.length !== 0 &&
           film.map(fil => (
             <li key={fil.id}>
-              <Link to={`${fil.id}`}>{fil.title}</Link>
+              <Link to={`${fil.id}`} state={{ from: location }}>
+                {fil.title}
+              </Link>
             </li>
           ))}
       </ul>

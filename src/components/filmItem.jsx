@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const FilmItem = () => {
@@ -7,7 +7,12 @@ const FilmItem = () => {
   // const [genres, setGenres] = useState([]);
   const { kinoID } = useParams();
 
+  const location = useLocation();
+  const linkBackLocation = useRef(location.state?.from ?? '/');
+  console.log(linkBackLocation);
+
   useEffect(() => {
+    console.log(location);
     async function detailsFilm() {
       const options = {
         method: 'GET',
@@ -31,6 +36,9 @@ const FilmItem = () => {
 
   return (
     <div>
+      <div>
+        <Link to={linkBackLocation.current}>Back</Link>
+      </div>
       FilmItem - {kinoID}
       <img src={film.backdrop_path} alt="" />
       <h2>{film.title}</h2>
@@ -52,7 +60,9 @@ const FilmItem = () => {
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

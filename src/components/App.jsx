@@ -1,11 +1,18 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
 import Home from 'pages/Home';
 import Movies from '../pages/Movies';
 import FilmItem from './filmItem';
-import Cast from './Cast';
-import Reviwes from './Reviwes';
+// import Cast from './Cast';
+// import Reviwes from './Reviwes';
 
-export const App = () => {
+// const Home = lazy(() => import('pages/Home'));
+// const Movies = lazy(() => import('../pages/Movies'));
+// const FilmItem = lazy(() => import('./filmItem'));
+const Cast = lazy(() => import('./Cast'));
+const Reviwes = lazy(() => import('./Reviwes'));
+
+const App = () => {
   return (
     <div>
       <nav>
@@ -29,3 +36,5 @@ export const App = () => {
     </div>
   );
 };
+
+export default App;

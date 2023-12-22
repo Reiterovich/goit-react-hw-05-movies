@@ -1,11 +1,15 @@
 // import axios from 'axios';
 // import { API_KEY } from 'components/ApiKey';
 // import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
   const [film, setFilm] = useState([]);
+
+  const location = useLocation();
+
+  console.log(location);
 
   // const { kinoID } = useParams();
 
@@ -35,7 +39,9 @@ const Home = () => {
         {film.length !== 0 &&
           film.map(fil => (
             <li key={fil.id}>
-              <Link to={`movies/${fil.id}`}>{fil.title}</Link>
+              <Link to={`movies/${fil.id}`} state={{ from: location }}>
+                {fil.title}
+              </Link>
             </li>
           ))}{' '}
       </ul>
