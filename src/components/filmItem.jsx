@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 const FilmItem = () => {
   const [film, setFilm] = useState([]);
-  // const [genres, setGenres] = useState([]);
+  const [genres, setGenres] = useState([]);
+
+  console.log(film);
   const { kinoID } = useParams();
 
   const location = useLocation();
   const linkBackLocation = useRef(location.state?.from ?? '/');
-  console.log(linkBackLocation);
 
   useEffect(() => {
     async function detailsFilm() {
@@ -38,13 +39,18 @@ const FilmItem = () => {
       <div>
         <Link to={linkBackLocation.current}>Back</Link>
       </div>
-      FilmItem - {kinoID}
-      <img src={film.backdrop_path} alt="" />
+
+      {film && (
+        <img
+          src={`https://image.tmdb.org/t/p/w300/${film.poster_path}`}
+          alt=""
+        />
+      )}
       <h2>{film.title}</h2>
       <p>User score</p>
       <h2>Owerview</h2>
       <p>{film.overview}</p>
-      <h3>Genres{film.title}?????</h3>
+      <h3>Genres ?????</h3>
       <p>{}</p>
       <div>
         <h4>Additional information</h4>
