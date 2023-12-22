@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 
 const FilmItem = () => {
   const [film, setFilm] = useState([]);
-  const [genres, setGenres] = useState([]);
 
-  console.log(film);
   const { kinoID } = useParams();
 
   const location = useLocation();
@@ -39,28 +37,32 @@ const FilmItem = () => {
       <div>
         <Link to={linkBackLocation.current}>Back</Link>
       </div>
-
       {film && (
         <img
-          src={`https://image.tmdb.org/t/p/w300/${film.poster_path}`}
-          alt=""
+          src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+          alt={`${film.name}`}
+          width={250}
         />
       )}
       <h2>{film.title}</h2>
       <p>User score</p>
       <h2>Owerview</h2>
       <p>{film.overview}</p>
-      <h3>Genres ?????</h3>
+      <div>
+        Ganeres:{' '}
+        <ul>
+          {film.genres &&
+            film.genres.map(fil => <li key={fil.id}>{fil.name}</li>)}
+        </ul>
+      </div>
       <p>{}</p>
       <div>
         <h4>Additional information</h4>
         <ul>
           <li>
-            {' '}
             <Link to="cast">Cast</Link>
           </li>
           <li>
-            {' '}
             <Link to="rewievs">Reviwes</Link>
           </li>
         </ul>
