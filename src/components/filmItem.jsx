@@ -61,7 +61,7 @@ const FilmItem = () => {
           <h2>Owerview</h2>
           <p>{film.overview}</p>
 
-          <h3> Ganeres:</h3>
+          <h3>Genres:</h3>
 
           <ul>
             {film.genres &&
