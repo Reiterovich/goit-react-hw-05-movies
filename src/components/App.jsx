@@ -3,28 +3,25 @@ import { lazy } from 'react';
 import Home from 'pages/Home';
 import Movies from '../pages/Movies';
 import FilmItem from './filmItem';
-// import Cast from './Cast';
-// import Reviwes from './Reviwes';
 
-// const Home = lazy(() => import('pages/Home'));
-// const Movies = lazy(() => import('../pages/Movies'));
-// const FilmItem = lazy(() => import('./filmItem'));
+import { Container, List, ListItem } from './App.styled.components';
+
 const Cast = lazy(() => import('./Cast'));
 const Reviwes = lazy(() => import('./Reviwes'));
 
 const App = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
+      <Container>
+        <List>
+          <ListItem>
             <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
+          </ListItem>
+          <ListItem>
             <NavLink to="/movies">Movies</NavLink>
-          </li>
-        </ul>
-      </nav>
+          </ListItem>
+        </List>
+      </Container>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />

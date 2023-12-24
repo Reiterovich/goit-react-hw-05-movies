@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { ButtonBack, Container } from './filmItem.styled.components';
 
 const FilmItem = () => {
   const [film, setFilm] = useState([]);
@@ -34,42 +35,44 @@ const FilmItem = () => {
 
   return (
     <div>
-      <div>
-        <Link to={linkBackLocation.current}>Back</Link>
-      </div>
-      {film && (
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
-          alt={`${film.name}`}
-          width={250}
-        />
-      )}
-      <h2>{film.title}</h2>
-      <p>User score</p>
-      <h2>Owerview</h2>
-      <p>{film.overview}</p>
-      <div>
-        Ganeres:{' '}
-        <ul>
-          {film.genres &&
-            film.genres.map(fil => <li key={fil.id}>{fil.name}</li>)}
-        </ul>
-      </div>
-      <p>{}</p>
-      <div>
-        <h4>Additional information</h4>
-        <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-          </li>
-          <li>
-            <Link to="rewievs">Reviwes</Link>
-          </li>
-        </ul>
-      </div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Link to={linkBackLocation.current}>
+        <ButtonBack>Back</ButtonBack>
+      </Link>
+      <Container>
+        {film && (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+            alt={`${film.name}`}
+            width={250}
+          />
+        )}
+        <h2>{film.title}</h2>
+        <p>User score - {`${film.vote_average}`}</p>
+        <h2>Owerview</h2>
+        <p>{film.overview}</p>
+        <div>
+          Ganeres:{' '}
+          <ul>
+            {film.genres &&
+              film.genres.map(fil => <li key={fil.id}>{fil.name}</li>)}
+          </ul>
+        </div>
+        <p>{}</p>
+        <div>
+          <h4>Additional information</h4>
+          <ul>
+            <li>
+              <Link to="cast">Cast</Link>
+            </li>
+            <li>
+              <Link to="rewievs">Reviwes</Link>
+            </li>
+          </ul>
+        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </Container>
     </div>
   );
 };

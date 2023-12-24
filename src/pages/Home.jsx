@@ -1,6 +1,3 @@
-// import axios from 'axios';
-// import { API_KEY } from 'components/ApiKey';
-// import { useParams } from 'react-router-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -8,10 +5,6 @@ const Home = () => {
   const [film, setFilm] = useState([]);
 
   const location = useLocation();
-
-  console.log(location);
-
-  // const { kinoID } = useParams();
 
   useEffect(() => {
     const options = {

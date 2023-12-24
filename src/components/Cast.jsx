@@ -26,7 +26,7 @@ const Cast = () => {
 
   return (
     <div>
-      <ul>
+      <ul id="cast">
         {cast.length !== 0 &&
           cast.map(cas => (
             <div key={cas.id}>
