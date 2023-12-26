@@ -46,9 +46,16 @@ const FilmItem = () => {
       </Link>
       <Container>
         <div>
-          {film && (
+          {film.poster_path !== null && (
             <Photo
               src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+              alt={`${film.name}`}
+              width={250}
+            />
+          )}
+          {film.poster_path === null && (
+            <Photo
+              src="../../img/noPhoto.JPG"
               alt={`${film.name}`}
               width={250}
             />

@@ -1,13 +1,13 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import Home from 'pages/Home';
-import Movies from '../pages/Movies';
-import FilmItem from './filmItem';
+import Movies from '../../pages/Movies';
+import FilmItem from '../../pages/FilmItem/filmItem';
 
 import { Container, List, ListItem } from './App.styled.components';
 
-const Cast = lazy(() => import('./Cast'));
-const Reviwes = lazy(() => import('./Reviwes'));
+const Cast = lazy(() => import('../Cast'));
+const Reviwes = lazy(() => import('../Reviwes'));
 
 const App = () => {
   return (
