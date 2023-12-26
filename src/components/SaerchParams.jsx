@@ -1,11 +1,9 @@
-// import { useEffect } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 const SearchParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchParam, setSearchParam] = useState('');
-  // const search = searchParams.get('search') ?? '';
   const search = searchParams.get('search');
 
   const hendleSubmit = evt => {

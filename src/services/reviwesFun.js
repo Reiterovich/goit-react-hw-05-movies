@@ -1,4 +1,4 @@
-export function searchDetalisFilm(kinoId) {
+export function reviwesFun(kinoID) {
   const options = {
     method: 'GET',
     headers: {
@@ -9,7 +9,7 @@ export function searchDetalisFilm(kinoId) {
   };
 
   return fetch(
-    `https://api.themoviedb.org/3/movie/${kinoId}?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${kinoID}/reviews?language=en-US&page=1`,
     options
   ).then(response => response.json());
 }

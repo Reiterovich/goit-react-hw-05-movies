@@ -8,6 +8,7 @@ import {
   MainContainer,
   InformatoinContainer,
 } from './filmItem.styled.components';
+import { searchDetalisFilm } from '../../services/apiFun';
 
 const FilmItem = () => {
   const [film, setFilm] = useState([]);
@@ -19,20 +20,7 @@ const FilmItem = () => {
 
   useEffect(() => {
     async function detailsFilm() {
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZmZhMGNmNDU5MDk1ZmY4MjI4MTQwNzRjZThhNzI1ZiIsInN1YiI6IjY1N2Y1N2ViNjdiNjEzMDU1MjhjODE3NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K9tYv4W2usSl9nJR0P-Aa5-DrVa1ZLviMJNryhZEts4',
-        },
-      };
-
-      await fetch(
-        `https://api.themoviedb.org/3/movie/${kinoID}?language=en-US`,
-        options
-      )
-        .then(response => response.json())
+      searchDetalisFilm(kinoID)
         .then(response => setFilm(response))
         .catch(err => console.error(err));
     }
@@ -55,7 +43,7 @@ const FilmItem = () => {
           )}
           {film.poster_path === null && (
             <Photo
-              src="../../img/noPhoto.JPG"
+              src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg"
               alt={`${film.name}`}
               width={250}
             />

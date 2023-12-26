@@ -1,4 +1,4 @@
-export function searchDetalisFilm(kinoId) {
+export function homeSearchFun() {
   const options = {
     method: 'GET',
     headers: {
@@ -9,7 +9,7 @@ export function searchDetalisFilm(kinoId) {
   };
 
   return fetch(
-    `https://api.themoviedb.org/3/movie/${kinoId}?language=en-US`,
+    'https://api.themoviedb.org/3/trending/movie/week?language=en-US',
     options
   ).then(response => response.json());
 }
